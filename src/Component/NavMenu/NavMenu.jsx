@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
+    Navbar,
+    MobileNav,
+    Typography,
+    Button,
+    IconButton,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 const NavMenu = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -24,55 +25,33 @@ const NavMenu = () => {
                 as="li"
                 variant="small"
                 color="blue-gray"
-                className="p-1 font-normal"
+                className="p-1 font-normal hover:text-[#FF731D] text-lg"
             >
-                <a href="#" className="flex items-center">
-                    Pages
-                </a>
+                <Link className="flex items-center" to='/featured'>
+                    Featured
+                </Link>
             </Typography>
             <Typography
                 as="li"
                 variant="small"
                 color="blue-gray"
-                className="p-1 font-normal"
+                className="p-1 font-normal hover:text-[#FF731D] text-lg"
             >
-                <a href="#" className="flex items-center">
-                    Account
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Blocks
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Docs
-                </a>
+                <Link className="flex items-center" to='/cart'>
+                    Cart
+                </Link>
             </Typography>
         </ul>
     );
     return (
         <div>
-            <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+            <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 shadow-none">
                 <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                     <Typography
-                        as="a"
-                        href="#"
                         variant="small"
-                        className="mr-4 cursor-pointer py-1.5 font-normal"
+                        className="mr-4 cursor-pointer py-1.5 font-bold text-2xl"
                     >
-                        <span>Material Tailwind</span>
+                       <Link to='/'><span>Shopping Cart</span></Link>
                     </Typography>
                     <div className="hidden lg:block">{navList}</div>
                     <IconButton
