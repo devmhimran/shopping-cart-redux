@@ -25,7 +25,7 @@ const NavMenu = () => {
                 as="li"
                 variant="small"
                 color="blue-gray"
-                className="p-1 font-normal hover:text-[#FF731D] text-lg"
+                className="p-1 font-semibold hover:text-blue-600 text-lg mont"
             >
                 <Link className="flex items-center" to='/featured'>
                     Featured
@@ -35,7 +35,7 @@ const NavMenu = () => {
                 as="li"
                 variant="small"
                 color="blue-gray"
-                className="p-1 font-normal hover:text-[#FF731D] text-lg"
+                className="p-1 font-semibold hover:text-blue-600 text-lg mont"
             >
                 <Link className="flex items-center" to='/cart'>
                     Cart
@@ -44,14 +44,14 @@ const NavMenu = () => {
         </ul>
     );
     return (
-        <div>
+        <div className=' border border-bottom'>
             <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 shadow-none">
                 <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                     <Typography
                         variant="small"
-                        className="mr-4 cursor-pointer py-1.5 font-bold text-2xl"
+                        className="mr-4 cursor-pointer py-1.5 font-bold text-2xl mont"
                     >
-                       <Link to='/'><span>Shopping Cart</span></Link>
+                       <Link to='/'><span>E Shopping</span></Link>
                     </Typography>
                     <div className="hidden lg:block">{navList}</div>
                     <IconButton
