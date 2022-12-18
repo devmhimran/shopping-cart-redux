@@ -32,9 +32,9 @@ const Featured = () => {
         content = products.filter(data => data.rating.rate >= 4 ).map(data => <AllProducts key={data.id} data={data} />)
     }
     return (
-        < div className='mx-auto max-w-screen-xl' >
+        < div className='mx-3 lg:mx-auto max-w-screen-xl' >
             <ShortHero textColor='text-white' bgColor='bg-red-500' heading='Featured' />
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6 py-16">
                 {content}
             </div>
         </div >
