@@ -9,6 +9,7 @@ import Cart from './Component/Cart/Cart'
 import Home from './Component/Home/Home'
 import { Provider } from 'react-redux'
 import store from './Component/Redux/store'
+import Footer from './Component/Footer/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
           <Route path="/featured" element={<Featured />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+        <Footer/>
       </div>
     </Provider>
   )

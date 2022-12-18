@@ -36,8 +36,8 @@ const Home = () => {
         <div>
             <Hero />
             <div className="mx-auto max-w-screen-xl relative">
-                <h2 className='font-bold text-5xl mb-16 mont'>All Products</h2>
-                <div className="grid grid-cols-4 gap-6">
+                <h2 className='font-bold text-5xl mont'>All Products</h2>
+                <div className="grid grid-cols-4 gap-6 py-16">
                     {content}
                 </div>
             </div>

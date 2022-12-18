@@ -1,45 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import FeaturedHero from '../Hero/FeaturedHero';
-import AllCart from '../AllCart/AllCart';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FETCH_START, FETCH_SUCCESS } from '../Redux/actionTypes/actionTypes';
+import Loading from '../Loading/Loading';
+import AllProducts from '../AllProducts/AllProducts';
+import ShortHero from '../Hero/ShortHero';
 
 const Featured = () => {
-    const [product, setProduct] = useState([]);
+    const { loading, products, error } = useSelector(state => state);
+    const dispatch = useDispatch();
     useEffect(() => {
+        dispatch({ type: FETCH_START })
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => dispatch({
+                type: FETCH_SUCCESS,
+                payload: data
+            }))
     }, [])
+
+    let content;
+    if (loading) {
+        content = <Loading />
+    }
+    if (error) {
+        content = <h1>Error Occur</h1>
+    }
+    if (!loading && !error && products.length === 0) {
+        content = <><h1 className='text-grey-200'>No product yet</h1></>
+    }
+    if (!loading && !error && products.length) {
+        content = products.filter(data => data.rating.rate >= 4 ).map(data => <AllProducts key={data.id} data={data} />)
+    }
     return (
-        <div className='mx-auto max-w-screen-xl'>
-            <div className="cart__heading border-2 border-black py-8 my-8">
-                <h1 className='text-center uppercase font-bold text-4xl'>Cart</h1>
+        < div className='mx-auto max-w-screen-xl' >
+            <ShortHero textColor='text-white' bgColor='bg-red-500' heading='Featured' />
+            <div className="grid grid-cols-4 gap-6">
+                {content}
             </div>
-            <div className="cart__content">
-                <div className="grid grid-cols-3 gap-4">
-                    <div className="cart__content__left border-2 border-black col-span-2 p-4">
-                        <table className='w-full table-auto'>
-                            <thead className='border-2 border-black'>
-                                <th className='text-left p-1'>Image</th>
-                                <th className='text-left p-1'>Name</th>
-                                <th className='text-left p-1'>Price</th>
-                                <th className='text-left p-1'>Quantity</th>
-                                <th className='text-left p-1'></th>
-                            </thead>
-                            <tbody>
-                                {
-                                    product.map(data => <AllCart data={data} />)
-                                }
-                            </tbody>
-
-                        </table>
-                    </div>
-                    <div className="cart__content__right border-2 border-black">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+        </div >
+    )
 };
 
 export default Featured;
