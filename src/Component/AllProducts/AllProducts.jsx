@@ -1,4 +1,5 @@
 import React from 'react';
+import { BiHeart } from 'react-icons/bi';
 
 const AllProducts = ({ data }) => {
     const { id, title, image, price } = data
@@ -9,11 +10,12 @@ const AllProducts = ({ data }) => {
                     <img className='w-full h-64 object-cover' src={image} alt="" />
                 </div>
                 <div className="product__detail">
-                    <h4 className='font-semibold text-lg'>{title.slice(0, 20)}...</h4>
-                    <p>Price: ${price}</p>
+                    <h4 className='font-semibold text-lg mont my-1'>{title.slice(0, 20)}...</h4>
+                    <p className='text-black my-1'>Price: ${price}</p>
                 </div>
-                <div className="cart__btn">
-                    <button className='border-2 border-black'>Add to cart</button>
+                <div className="cart__btn flex gap-1">
+                    <button className='border-2 border-black py-1 w-full hover:bg-red-500 hover:text-white mont font-semibold'>Add to cart</button>
+                    <button className='border-2 border-black py-1 px-2 hover:border-red-500 wishlist'> <span className='text-2xl'><BiHeart /></span> </button>
                 </div>
             </div>
         </div>
