@@ -1,4 +1,4 @@
-import { FETCH_ERROR, FETCH_START, FETCH_SUCCESS} from "../actionTypes/actionTypes"
+import { ADD_TO_CART, FETCH_ERROR, FETCH_START, FETCH_SUCCESS} from "../actionTypes/actionTypes"
 
 
 export const initialState = {
@@ -10,6 +10,7 @@ export const initialState = {
 
 export const productReducers = (state= initialState, action) => {
     // console.log(action)
+    
     switch(action.type){
         case FETCH_START:
             return{
@@ -29,6 +30,20 @@ export const productReducers = (state= initialState, action) => {
                 loading: false,
                 error: false,
                 products: action.payload
+            }
+        case ADD_TO_CART:
+            const selectedProduct = state.cart.find(product => product.id === action.payload.id)
+            if(selectedProduct){
+                const newCart = state.cart.filter(product => product.id !== selectedProduct.id)
+                selectedProduct.quantity = selectedProduct.quantity + 1
+                return {
+                    ...state,
+                    cart: [...newCart, selectedProduct]
+                }
+            }
+            return{
+                ...state,
+                cart: [...state.cart, {...action.payload, quantity: 1}]
             }
             default: return state
     }

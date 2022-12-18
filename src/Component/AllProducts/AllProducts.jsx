@@ -1,8 +1,11 @@
 import React from 'react';
 import { BiHeart } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
+import { ADD_TO_CART } from '../Redux/actionTypes/actionTypes';
 
 const AllProducts = ({ data }) => {
     const { id, title, image, price } = data
+    const dispatch = useDispatch();
     return (
         <div className='card border-2 border-black'>
             <div className="card-body p-4">
@@ -14,7 +17,7 @@ const AllProducts = ({ data }) => {
                     <p className='text-black my-1'>Price: ${price}</p>
                 </div>
                 <div className="cart__btn flex gap-1">
-                    <button className='border-2 border-black py-1 w-full hover:bg-red-500 hover:text-white mont font-semibold'>Add to cart</button>
+                    <button className='border-2 border-black py-1 w-full hover:bg-red-500 hover:text-white mont font-semibold' onClick={()=> dispatch({type: ADD_TO_CART, payload: data})}>Add to cart</button>
                     <button className='border-2 border-black py-1 px-2 hover:border-red-500 wishlist'> <span className='text-2xl'><BiHeart /></span> </button>
                 </div>
             </div>
