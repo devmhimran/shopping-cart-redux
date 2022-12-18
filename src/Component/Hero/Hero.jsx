@@ -7,9 +7,10 @@ const Hero = () => {
             <div className="grid grid-cols-2">
                 <div className="hero__left flex items-center">
                     <div className="hero__left__content">
-                        <h1 className='mont font-bold text-6xl'>
-                            Welcome to Our <br />
-                            Ecommerce Store! <br />
+                        <h1 className='mont font-bold text-6xl leading-tight'>
+                            Welcome to Our 
+                            Ecommerce<br />
+                            Redux  Store! <br />
                         </h1>
                         <p className='robo mt-4'>Shop Our Wide Range of Products at Great Prices.</p>
                     </div>

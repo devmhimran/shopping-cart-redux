@@ -41,6 +41,16 @@ const NavMenu = () => {
                     Cart
                 </Link>
             </Typography>
+            <Typography
+                as="li"
+                variant="small"
+                color="blue-gray"
+                className="p-1 font-semibold hover:text-blue-600 text-lg mont"
+            >
+                <Link className="flex items-center" to='/wishlist'>
+                    Wishlist
+                </Link>
+            </Typography>
         </ul>
     );
     return (

@@ -10,6 +10,7 @@ import Home from './Component/Home/Home'
 import { Provider } from 'react-redux'
 import store from './Component/Redux/store'
 import Footer from './Component/Footer/Footer'
+import WishList from './Component/WishList/WishList'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/featured" element={<Featured />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
         <Footer/>
       </div>
